@@ -32,16 +32,12 @@ async function verifyPasswords(file) {
    modifiedArray.forEach(item => {
       const range = item[0].split('-');
       const letter = item[1][0];
-      const min = range[0];
-      const max = range[1];
+      const firstPostion = range[0] - 1;
+      const secondPosition = range[1] - 1;
       const password = item[2];
-      let letterCount = 0;
-      for (const char of password) {
-         if(char === letter){
-            letterCount++
-         }
-      }
-      if(letterCount >= min && letterCount <= max ) {
+      
+      if(password[firstPostion] === letter && password[secondPosition] !== letter 
+         || password[firstPostion] !== letter && password[secondPosition] === letter) {
          correctPasswords++
       }
    })
