@@ -47,6 +47,7 @@ function iterateBoardingPasses(passes) {
       const seatId = pass.slice(7);
       const rowNum = findRowNum(rowId);
       const seatNum = findSeatNum(seatId);
+      console.log(seatNum + 8 * rowNum);
       if(seatNum + 8 * rowNum > highestSeatId) highestSeatId = seatNum + 8 * rowNum;
    }
    console.log(highestSeatId);
