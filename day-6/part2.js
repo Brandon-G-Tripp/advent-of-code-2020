@@ -14,14 +14,21 @@ function processInputSync(file){
 }
 
 function checkGroupAnswers(group) {
+   const splitGroup = group.split('\n');
    const answerHash = {};
+   let allYesAnswers = 0;
    for(const answer of group){
       if(answer === '\n') continue;
       if(!(answer in answerHash)){
-         answerHash[answer] = true;
+         answerHash[answer] = 1;
+      } else {
+         answerHash[answer] += 1;
       }
    }
-   return Object.keys(answerHash).length;
+   for (const property in answerHash) {
+      if(answerHash[property] === splitGroup.length) allYesAnswers++;
+   }
+   return allYesAnswers;
 }
 
 function sumGroupAnswers(answerList) {
