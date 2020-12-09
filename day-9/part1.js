@@ -1,17 +1,11 @@
 const fs = require('fs');
 
 let processedInput;
-let modifiedInput = [];
-const tempArray = ['34',  '15', '45', '16', '30',  '43', '36', '21',  '32',
-'18',  '14', '31', '47', '41',  '22', '39', '9',   '38',
-'6',   '7',  '42', '46', '4',   '3',  '8',]
-
 
 function processInputSync(file){
    try {  
       const data = fs.readFileSync(file, 'utf8');
       processedInput = data.split('\n');
-      console.log(processedInput);
    } catch(e) {
       console.log('Error:', e.stack);
    }
