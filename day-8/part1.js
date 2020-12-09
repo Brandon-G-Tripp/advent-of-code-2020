@@ -28,17 +28,15 @@ function runBootFileCode(input) {
    while(!(index.toString() in visitedIndex)){
       visitedIndex[index.toString()] = true;
       if(input[index][0] === 'acc') {
-         console.log(acc);
-         console.log(input[index][1]);
          acc += input[index][1];
          index++;
-         console.log(acc);
       } else if (input[index][0] === 'jmp') {
          index += input[index][1];
       } else {
          index++;
       }
    }
+   console.log(index);
    console.log(acc);
 }
 
